@@ -51,8 +51,8 @@ function App() {
 
   const addExpression = (e) => {
     e.preventDefault();
-    let data = rules[rules.length-1];
-    if(!data.key || !data.output.value || !data.output.operator || !data.output.score){
+    let data = (rules.length-1 >= 0)? rules[rules.length-1]: null;
+    if(data && (!data.key || !data.output.value || !data.output.operator || !data.output.score)){
          alert("Please complete the previous expression first")
     }
     else dispatch({type:ADD_EXPRESSION})
